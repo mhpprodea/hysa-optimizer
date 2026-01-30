@@ -3,26 +3,937 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Journey Preview - With Sub-sections</title>
+    <title>Stop Losing Money to Inflation | HYSA Optimizer</title>
+    <meta name="description" content="Calculate how much your savings are losing to inflation. Compare HYSA rates and find the best high-yield savings account for 2026.">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Primary Palette: Financial Trust */
+            --trust-navy: #0A2540;
+            --growth-green: #00C896;
+            --accent-amber: #FFB74D;
+            --loss-red: #C75450; /* Softer, less alarming red */
+            
+            /* Neutrals - Enhanced for accessibility */
+            --bg-primary: #FAFBFC;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1F36; /* WCAG AAA compliant */
+            --text-secondary: #4A5568; /* Improved contrast */
+            --border-subtle: #E3E8EE;
+            
+            /* System */
+            --shadow-sm: 0 1px 3px rgba(10, 37, 64, 0.06);
+            --shadow-md: 0 4px 12px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 12px 32px rgba(10, 37, 64, 0.12);
+            --radius: 12px;
+            --spacing-unit: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fafbfc;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Accessibility: Skip Navigation */
+        .skip-navigation {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: var(--growth-green);
+            color: white;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+            text-decoration: none;
+            z-index: 10000;
+            font-weight: 600;
+            border-radius: 0 0 var(--radius) 0;
+        }
+        
+        .skip-navigation:focus {
+            top: 0;
+            outline: 3px solid white;
+            outline-offset: -3px;
+        }
+        
+        /* Screen Reader Only Content */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Enhanced Focus Styles for Keyboard Navigation */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible,
+        .carousel-dot:focus-visible {
+            outline: 3px solid var(--growth-green);
+            outline-offset: 3px;
+        }
+        
+        /* Typography System */
+        h1, h2, h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
         
         h1 {
-            color: #0A2540;
+            font-size: clamp(2rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+        }
+        
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--trust-navy);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 4);
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            padding: calc(var(--spacing-unit) * 1) 0;
+        }
+        
+        .nav-link:hover {
+            color: var(--growth-green);
+        }
+        
+        .nav-link.active {
+            color: var(--growth-green);
+            border-bottom: 2px solid var(--growth-green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--trust-navy) 0%, #0D3A5F 100%);
+            overflow: hidden;
+            padding: calc(var(--spacing-unit) * 4) 0;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 200, 150, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 183, 77, 0.08) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 6);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: calc(var(--spacing-unit) * 10);
+            align-items: center;
+        }
+        
+        .hero-text {
+            color: white;
+            animation: fadeSlideIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--growth-green);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            animation: fadeSlideIn 0.8s ease-out 0.2s backwards;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            animation: fadeSlideIn 0.8s ease-out 0.4s backwards;
+            line-height: 1.15;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+            max-width: 560px;
+            animation: fadeSlideIn 0.8s ease-out 0.6s backwards;
+            line-height: 1.7;
+        }
+        
+        .stat-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 3);
+            padding: calc(var(--spacing-unit) * 3);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: calc(var(--radius) * 1.5);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            animation: fadeSlideIn 0.8s ease-out 0.8s backwards;
+            max-width: 500px;
+        }
+        
+        .stat-value {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--loss-red);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 220px;
+            line-height: 1.5;
+        }
+        
+        /* Calculator Card */
+        .calculator-card {
+            background: var(--bg-card);
+            border-radius: calc(var(--radius) * 1.5);
+            padding: calc(var(--spacing-unit) * 5);
+            box-shadow: var(--shadow-lg);
+            animation: fadeSlideIn 0.8s ease-out 0.6s backwards;
+        }
+        
+        .calculator-header {
+            margin-bottom: calc(var(--spacing-unit) * 4);
+        }
+        
+        .calculator-header h3 {
+            color: var(--trust-navy);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .calculator-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .input-group {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-prefix {
+            position: absolute;
+            left: calc(var(--spacing-unit) * 2);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5);
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius);
+            font-size: 1.125rem;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s ease;
+        }
+        
+        input[type="number"]:hover {
+            border-color: var(--growth-green);
+        }
+        
+        input[type="number"]:focus {
+            border-color: var(--growth-green);
+            box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.1);
+        }
+        
+        /* Bank Dropdown Selector */
+        .bank-selector {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .bank-dropdown select {
+            width: 100%;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2);
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%234A5568' d='M7 10L2 5h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right calc(var(--spacing-unit) * 2) center;
+            color: var(--text-primary);
+        }
+        
+        .bank-dropdown select:hover {
+            border-color: var(--growth-green);
+        }
+        
+        .bank-dropdown select:focus {
+            border-color: var(--growth-green);
+            box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.1);
+        }
+        
+        .bank-rate-display {
+            margin-top: calc(var(--spacing-unit) * 2);
+            padding: calc(var(--spacing-unit) * 3);
+            background: linear-gradient(135deg, rgba(0, 200, 150, 0.08) 0%, rgba(0, 200, 150, 0.03) 100%);
+            border-radius: var(--radius);
             text-align: center;
-            margin-bottom: 40px;
+            border: 1px solid rgba(0, 200, 150, 0.2);
+        }
+        
+        .bank-rate-display .rate-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+            font-weight: 500;
+        }
+        
+        .bank-rate-display .rate-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--growth-green);
+            font-family: 'Fraunces', serif;
+            line-height: 1;
+        }
+        
+        .custom-rate-input {
+            display: none;
+            margin-top: calc(var(--spacing-unit) * 2);
+        }
+        
+        .custom-rate-input.active {
+            display: block;
+        }
+        
+        .rate-input-wrapper {
+            position: relative;
+            max-width: 250px;
+        }
+        
+        .rate-input-wrapper input {
+            width: 100%;
+            padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 5) calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2);
+        }
+        
+        .rate-suffix {
+            position: absolute;
+            right: calc(var(--spacing-unit) * 2);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        /* Results Display */
+        .results {
+            padding: calc(var(--spacing-unit) * 4);
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #F0F4F8 100%);
+            border-radius: var(--radius);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: calc(var(--spacing-unit) * 2) 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Fraunces', serif;
+            color: var(--trust-navy);
+        }
+        
+        .result-value.positive {
+            color: var(--growth-green);
+        }
+        
+        .result-value.negative {
+            color: var(--loss-red);
+        }
+        
+        /* Impact Visualization */
+        .impact-viz {
+            margin: calc(var(--spacing-unit) * 4) 0;
+            padding: calc(var(--spacing-unit) * 3);
+            background: white;
+            border-radius: var(--radius);
+            border: 2px solid var(--border-subtle);
+        }
+        
+        .impact-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .bar-comparison {
+            display: grid;
+            gap: calc(var(--spacing-unit) * 2);
+        }
+        
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing-unit) * 2);
+        }
+        
+        .bar-label {
+            min-width: 140px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .bar-track {
+            flex: 1;
+            height: 40px;
+            background: var(--bg-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--growth-green) 0%, #00E5A8 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: calc(var(--spacing-unit) * 2);
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: fit-content;
+            padding-left: calc(var(--spacing-unit) * 2);
+        }
+        
+        .bar-fill.loss {
+            background: linear-gradient(90deg, var(--loss-red) 0%, #E07570 100%);
+        }
+        
+        /* CTA Button */
+        .cta-primary {
+            width: 100%;
+            padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 4);
+            background: linear-gradient(135deg, var(--growth-green) 0%, #00B886 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.125rem;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 200, 150, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 200, 150, 0.4);
+        }
+        
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+        
+        .trust-badge {
+            text-align: center;
+            margin-top: calc(var(--spacing-unit) * 2);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 1);
+        }
+        
+        .trust-icon {
+            width: 16px;
+            height: 16px;
+            fill: var(--growth-green);
+        }
+        
+        /* Loading Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .calculating {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        /* Page Container */
+        .page-container {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .page-container.active {
+            display: block;
+        }
+        
+        /* Features Section */
+        .features {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 15) calc(var(--spacing-unit) * 6);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 10);
+        }
+        
+        .section-header h2 {
+            color: var(--trust-navy);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+        }
+        
+        .feature-card {
+            padding: calc(var(--spacing-unit) * 5);
+            background: white;
+            border-radius: calc(var(--radius) * 1.5);
+            border: 2px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--growth-green);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--growth-green) 0%, #00E5A8 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--trust-navy);
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            font-size: 1.25rem;
+        }
+        
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: linear-gradient(135deg, #F8FAFB 0%, #EDF1F5 100%);
+            padding: calc(var(--spacing-unit) * 12) calc(var(--spacing-unit) * 6);
+        }
+        
+        .proof-stats {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--spacing-unit) * 6);
+        }
+        
+        .stat-card {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--trust-navy);
+            line-height: 1;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .stat-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        /* Testimonials Carousel */
+        .testimonials {
+            background: white;
+            padding: calc(var(--spacing-unit) * 15) calc(var(--spacing-unit) * 6);
+            overflow: hidden;
+        }
+        
+        .testimonial-carousel {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-card {
+            padding: calc(var(--spacing-unit) * 5);
+            background: var(--bg-primary);
+            border-radius: calc(var(--radius) * 1.5);
+            border: 2px solid var(--border-subtle);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--growth-green) 0%, #00E5A8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .testimonial-meta h4 {
+            font-size: 1.125rem;
+            color: var(--trust-navy);
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .testimonial-text {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .testimonial-stats {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 3);
+            padding-top: calc(var(--spacing-unit) * 2);
+            border-top: 1px solid var(--border-subtle);
+        }
+        
+        .testimonial-stat {
+            flex: 1;
+        }
+        
+        .testimonial-stat-value {
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--growth-green);
+            line-height: 1;
+        }
+        
+        .testimonial-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+        
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--spacing-unit) * 3);
+            margin-top: calc(var(--spacing-unit) * 5);
+            align-items: center;
+        }
+        
+        .carousel-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--growth-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .carousel-button:hover:not(:disabled) {
+            background: #00B886;
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .carousel-button:disabled {
+            background: var(--border-subtle);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            gap: calc(var(--spacing-unit) * 1);
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-subtle);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        
+        .carousel-dot:hover:not(.active) {
+            background: #B0BCC8;
+            transform: scale(1.2);
+        }
+        
+        .carousel-dot.active {
+            background: var(--growth-green);
+            width: 32px;
+            border-radius: 6px;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 15) calc(var(--spacing-unit) * 6);
+        }
+        
+        .faq-item {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            background: white;
+            border-radius: var(--radius);
+            border: 2px solid var(--border-subtle);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: calc(var(--spacing-unit) * 3);
+            font-weight: 600;
+            color: var(--trust-navy);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+            font-size: 1.05rem;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-family: 'DM Sans', sans-serif;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-primary);
+        }
+        
+        .faq-answer {
+            padding: 0 calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        /* Product Journey */
+        .journey-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 6);
+        }
+        
+        .journey-header {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 8);
         }
         
         .journey-timeline {
             position: relative;
-            padding-left: 64px;
+            padding-left: calc(var(--spacing-unit) * 8);
         }
         
         .journey-timeline::before {
@@ -32,64 +943,49 @@
             top: 0;
             bottom: 0;
             width: 3px;
-            background: linear-gradient(180deg, #00C896 0%, #0A2540 100%);
+            background: linear-gradient(180deg, var(--growth-green) 0%, var(--trust-navy) 100%);
         }
         
         .journey-step {
             position: relative;
-            margin-bottom: 64px;
-            padding: 32px;
+            margin-bottom: calc(var(--spacing-unit) * 8);
+            padding: calc(var(--spacing-unit) * 4);
             background: white;
-            border-radius: 12px;
-            border: 2px solid #E3E8EE;
-        }
-        
-        /* Sub-section styling - indented and connected */
-        .journey-step.sub-section {
-            margin-left: 40px;
-            margin-top: -32px;
-            margin-bottom: 32px;
-            background: #f8fafb;
-            border-left: 4px solid #00C896;
-            border-top: none;
-            border-radius: 0 12px 12px 0;
-        }
-        
-        .journey-step.sub-section::before {
-            left: -93px;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border: 3px solid #00C896;
+            border-radius: var(--radius);
+            border: 2px solid var(--border-subtle);
         }
         
         .journey-step::before {
             content: '';
             position: absolute;
-            left: -53px;
-            top: 32px;
+            left: calc(var(--spacing-unit) * -8 + 11px);
+            top: calc(var(--spacing-unit) * 4);
             width: 22px;
             height: 22px;
-            background: #00C896;
+            background: var(--growth-green);
             border: 4px solid white;
             border-radius: 50%;
-            box-shadow: 0 0 0 2px #00C896;
+            box-shadow: 0 0 0 2px var(--growth-green);
         }
         
         .journey-step h3 {
-            color: #0A2540;
-            margin-bottom: 16px;
-            font-size: 1.3rem;
+            color: var(--trust-navy);
+            margin-bottom: calc(var(--spacing-unit) * 2);
         }
         
-        .journey-step.sub-section h3 {
-            font-size: 1.1rem;
-            color: #00C896;
+        .journey-step p {
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        
+        .journey-step p:last-child {
+            margin-bottom: 0;
         }
         
         .journey-step-number {
             display: inline-block;
-            background: #00C896;
+            background: var(--growth-green);
             color: white;
             width: 32px;
             height: 32px;
@@ -98,133 +994,1102 @@
             line-height: 32px;
             font-size: 0.875rem;
             font-weight: 700;
-            margin-right: 8px;
+            margin-right: calc(var(--spacing-unit) * 1);
         }
         
-        .sub-indicator {
-            display: inline-block;
-            background: transparent;
-            color: #00C896;
-            border: 2px solid #00C896;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
+        /* Contact Page */
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 6);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: calc(var(--spacing-unit) * 6);
+            border-radius: calc(var(--radius) * 1.5);
+            box-shadow: var(--shadow-md);
+            margin-top: calc(var(--spacing-unit) * 6);
+        }
+        
+        .form-group {
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: calc(var(--spacing-unit) * 1);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: calc(var(--spacing-unit) * 2);
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            color: var(--text-primary);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input:hover,
+        .form-group textarea:hover {
+            border-color: var(--growth-green);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--growth-green);
+            box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.1);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: calc(var(--spacing-unit) * 4);
+            margin-bottom: calc(var(--spacing-unit) * 6);
+        }
+        
+        .contact-card {
+            padding: calc(var(--spacing-unit) * 4);
+            background: var(--bg-primary);
+            border-radius: var(--radius);
             text-align: center;
-            line-height: 20px;
-            font-size: 0.75rem;
+        }
+        
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--growth-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto calc(var(--spacing-unit) * 2);
+            font-size: 1.75rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: var(--trust-navy);
+            padding: calc(var(--spacing-unit) * 15) calc(var(--spacing-unit) * 6);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(0, 200, 150, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 183, 77, 0.1) 0%, transparent 50%);
+        }
+        
+        .final-cta-content {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .final-cta h2 {
+            color: white;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+        }
+        
+        .final-cta p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: calc(var(--spacing-unit) * 5);
+        }
+        
+        .cta-secondary {
+            display: inline-block;
+            padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 5);
+            background: white;
+            color: var(--trust-navy);
+            border-radius: var(--radius);
+            font-size: 1.125rem;
             font-weight: 700;
-            margin-right: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .journey-step p {
-            margin-bottom: 16px;
-            color: #4A5568;
+        .cta-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
         
-        .journey-step p:last-child {
-            margin-bottom: 0;
+        /* Footer */
+        .footer {
+            background: var(--trust-navy);
+            color: white;
+            padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 6);
         }
         
-        .journey-step ul {
-            margin-left: 20px;
-            margin-top: 12px;
-            line-height: 1.8;
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: calc(var(--spacing-unit) * 8);
         }
         
-        .journey-step li {
-            margin-bottom: 8px;
-            color: #4A5568;
+        .footer-section {
+            min-width: 0;
         }
         
-        .journey-step strong {
-            color: #0A2540;
+        .footer-section h4 {
+            font-size: 1.125rem;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+            color: var(--growth-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: calc(var(--spacing-unit) * 6) auto 0;
+            padding-top: calc(var(--spacing-unit) * 4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Design - Mobile Optimization */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: calc(var(--spacing-unit) * 6);
+                padding: calc(var(--spacing-unit) * 10) calc(var(--spacing-unit) * 4);
+            }
+            
+            .calculator-card {
+                order: -1;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: calc(var(--spacing-unit) * 8) 0;
+            }
+            
+            .stat-highlight {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-content {
+                padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .nav-links {
+                gap: calc(var(--spacing-unit) * 2);
+            }
+            
+            .nav-link {
+                font-size: 0.875rem;
+            }
+            
+            .proof-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-timeline {
+                padding-left: calc(var(--spacing-unit) * 4);
+            }
+            
+            .journey-timeline::before {
+                left: 10px;
+            }
+            
+            .journey-step::before {
+                left: calc(var(--spacing-unit) * -4 + 3px);
+            }
+            
+            .result-value {
+                font-size: 1.25rem;
+            }
+            
+            .bar-label {
+                min-width: 80px;
+                font-size: 0.75rem;
+            }
+            
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>The Product Journey: From Pain Point to Prototype</h1>
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-navigation">Skip to main content</a>
     
-    <div class="journey-timeline">
-        <article class="journey-step">
-            <h3><span class="journey-step-number">1</span> Opportunity Discovery: The "Why"</h3>
-            <p>I identified a critical gap in the 2026 financial landscape. While the Fed has kept interest rates high, traditional banks still pay 0.01%. Most consumers are "losing money" to a 2.7% inflation rate without realizing it. I set out to build FutureValue—a tool that doesn't just calculate interest, but visualizes the "Cost of Inaction."</p>
-        </article>
+    <!-- Navigation -->
+    <nav class="nav-header" role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <a href="#" class="nav-logo" onclick="showPage('home'); return false;" aria-label="HYSA Optimizer Home">HYSA Optimizer</a>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home" onclick="showPage('home'); return false;" aria-label="Go to Home page">Home</a>
+                <a href="#" class="nav-link" data-page="journey" onclick="showPage('journey'); return false;" aria-label="Go to Product Journey page">Product Journey</a>
+                <a href="#" class="nav-link" data-page="contact" onclick="showPage('contact'); return false;" aria-label="Go to Contact Us page">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Home Page -->
+    <div id="home-page" class="page-container active">
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="eyebrow">Financial Optimizer 2026</span>
+                <h1>Your Savings Are Losing Money Every Single Day</h1>
+                <p class="hero-subtitle">While you earn 0.01% in a traditional savings account, inflation at 2.7% is eroding your purchasing power. Discover how much you're losing—and how to fix it.</p>
+                
+                <div class="stat-highlight">
+                    <div class="stat-value" aria-label="One thousand three hundred fifty dollars">$1,350</div>
+                    <div class="stat-label">Average annual loss for $50K in a traditional account vs. HYSA (based on 4.35% APY)</div>
+                </div>
+            </div>
+            
+            <div class="calculator-card" role="region" aria-label="Savings calculator">
+                <div class="calculator-header">
+                    <h3>Calculate Your Savings Leakage</h3>
+                    <p class="calculator-subtitle">See your actual monthly loss in under 30 seconds</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="savingsAmount" class="input-label">Current Savings Balance</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix" aria-hidden="true">$</span>
+                        <input 
+                            type="number" 
+                            id="savingsAmount" 
+                            value="50000" 
+                            min="0" 
+                            step="1000"
+                            aria-label="Enter your current savings balance in dollars"
+                            aria-describedby="savings-hint"
+                        >
+                        <span id="savings-hint" class="sr-only">Enter the amount of money you currently have in savings</span>
+                    </div>
+                </div>
+                
+                <div class="bank-selector">
+                    <label for="bankSelect" class="input-label">Select Your Bank or Enter Custom Rate</label>
+                    <div class="bank-dropdown">
+                        <select 
+                            id="bankSelect" 
+                            aria-label="Choose a bank or select custom rate option"
+                            aria-describedby="bank-hint"
+                        >
+                            <option value="4.35" data-bank="newtek">Newtek Bank - 4.35% APY</option>
+                            <option value="5.00" data-bank="varo">Varo Money - 5.00% APY</option>
+                            <option value="4.31" data-bank="axos">Axos Bank - 4.31% APY</option>
+                            <option value="4.20" data-bank="bread">Bread Savings - 4.20% APY</option>
+                            <option value="4.20" data-bank="openbank">Openbank - 4.20% APY</option>
+                            <option value="4.00" data-bank="barclays">Barclays - 4.00% APY</option>
+                            <option value="3.85" data-bank="cit">CIT Bank - 3.85% APY</option>
+                            <option value="4.00" data-bank="sofi">SoFi - 4.00% APY</option>
+                            <option value="4.00" data-bank="valley">Valley Direct - 4.00% APY</option>
+                            <option value="0.01" data-bank="traditional">Traditional Bank - 0.01% APY</option>
+                            <option value="custom" data-bank="custom">Custom Rate (Enter Your Own)</option>
+                        </select>
+                        <span id="bank-hint" class="sr-only">Select a high-yield savings account provider or choose custom to enter your own rate</span>
+                    </div>
+                    <div class="bank-rate-display" id="rateDisplay" role="status" aria-live="polite">
+                        <div class="rate-label">Current APY Selected</div>
+                        <div class="rate-value" aria-label="Four point three five percent annual percentage yield">4.35%</div>
+                    </div>
+                    <div class="custom-rate-input" id="customRateInput">
+                        <label for="customRate" class="input-label">Enter Custom APY</label>
+                        <div class="rate-input-wrapper">
+                            <input 
+                                type="number" 
+                                id="customRate" 
+                                value="4.35" 
+                                min="0" 
+                                max="10" 
+                                step="0.01"
+                                aria-label="Enter your custom annual percentage yield rate"
+                                aria-describedby="custom-rate-hint"
+                            >
+                            <span class="rate-suffix" aria-hidden="true">%</span>
+                            <span id="custom-rate-hint" class="sr-only">Enter a percentage between 0 and 10</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results" role="region" aria-label="Calculation results" aria-live="polite">
+                    <div class="result-item">
+                        <span class="result-label">Monthly Interest Earned</span>
+                        <span class="result-value positive" id="monthlyInterest" aria-label="Monthly interest amount">$181</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Annual Growth</span>
+                        <span class="result-value positive" id="annualGrowth" aria-label="Annual growth amount">$2,175</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Lost to Inflation (2.7%)</span>
+                        <span class="result-value negative" id="inflationLoss" aria-label="Amount lost to inflation">-$1,350</span>
+                    </div>
+                </div>
+                
+                <div class="impact-viz" role="region" aria-label="Visual comparison chart">
+                    <div class="impact-title">Account Comparison</div>
+                    <div class="bar-comparison">
+                        <div class="bar-row">
+                            <div class="bar-label">Traditional (0.01%)</div>
+                            <div class="bar-track" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" aria-label="Traditional bank annual earnings">
+                                <div class="bar-fill loss" id="traditionalBar" style="width: 1%;">
+                                    <span aria-hidden="true">$5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bar-row">
+                            <div class="bar-label">HYSA (4.35%)</div>
+                            <div class="bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="High-yield savings account annual earnings">
+                                <div class="bar-fill" id="hysaBar" style="width: 100%;">
+                                    <span aria-hidden="true">$2,175</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="cta-primary" onclick="window.location.href='#get-started'" aria-label="Find the best high-yield savings account for you">
+                    Find My Best HYSA Match
+                </button>
+                
+                <div class="trust-badge">
+                    <svg class="trust-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                    </svg>
+                    <span>FDIC-Insured • No Risk • Free Tool</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Built for the Anxious Optimizer</h2>
+            <p class="section-subtitle">No financial jargon. No hidden agendas. Just clear, actionable insights to protect your money.</p>
+        </div>
         
-        <article class="journey-step">
-            <h3><span class="journey-step-number">2</span> Target Audience: The "Anxious Optimizer"</h3>
-            <p>Before building, I defined exactly who this was for. I targeted the "Cautious Saver":</p>
-            <ul>
-                <li><strong>The User:</strong> Individuals with $5k–$50k in traditional savings.</li>
-                <li><strong>The Problem:</strong> They are risk-averse and find the stock market "scary," so they do nothing.</li>
-                <li><strong>The Barrier:</strong> They find traditional financial jargon overwhelming and don't know which banks to trust.</li>
-                <li><strong>The Goal:</strong> Show them that moving money to an FDIC-insured HYSA is a "zero-risk" win.</li>
-            </ul>
-        </article>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">📊</div>
+                <h3>Instant Clarity</h3>
+                <p class="feature-description">Visualize your monthly "Savings Leakage" in 30 seconds. No complex spreadsheets or confusing calculations required.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🛡️</div>
+                <h3>Zero Risk, Maximum Protection</h3>
+                <p class="feature-description">All recommended HYSAs are FDIC-insured up to $250,000. Your money stays safe while it actually grows.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">🎯</div>
+                <h3>Neutral Advisor</h3>
+                <p class="feature-description">We don't sell accounts or earn commissions. Just unbiased data to help you make the best decision for your situation.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">💰</div>
+                <h3>Genuine Passive Income</h3>
+                <p class="feature-description">See exactly how much you'll earn monthly. No market risk, no volatility—just predictable, guaranteed growth.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">⚡</div>
+                <h3>AI-Powered Matching</h3>
+                <p class="feature-description">Get personalized HYSA recommendations based on your balance, state, and specific needs—in seconds.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon" aria-hidden="true">📈</div>
+                <h3>Live Rate Tracking</h3>
+                <p class="feature-description">Access real-time APY data from top HYSAs. Always know when better rates become available.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="proof-stats">
+            <div class="stat-card">
+                <div class="stat-number" aria-label="Four hundred thirty-five times">435×</div>
+                <div class="stat-description">Higher returns than traditional savings (4.35% vs 0.01%)</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number" aria-label="Two hundred fifty thousand dollars">$250K</div>
+                <div class="stat-description">FDIC insurance protection on all recommended accounts</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number" aria-label="Zero percent">0%</div>
+                <div class="stat-description">Market risk—your principal is always protected</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Carousel Section -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>Proven Success Stories</h2>
+            <p class="section-subtitle">See how others have transformed their savings strategy</p>
+        </div>
         
-        <article class="journey-step sub-section">
-            <h3><span class="sub-indicator">↳</span> Problem Validation: Hearing It From Real Users</h3>
-            <p>Before drafting requirements, I interviewed five "Cautious Savers" to validate key assumptions. They shared confusion about bank terms, fear of risky investments, and uncertainty about where to move their money—insights that directly shaped the UX and messaging.</p>
-        </article>
+        <div class="testimonial-carousel" role="region" aria-label="Customer testimonials" aria-live="polite">
+            <div class="testimonial-track" id="testimonialTrack">
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" aria-hidden="true">SJ</div>
+                            <div class="testimonial-meta">
+                                <h4>Sarah Johnson</h4>
+                                <div class="testimonial-role">Small Business Owner • Chicago</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"I had $75,000 sitting in my checking account earning nothing. This calculator showed me I was losing over $2,000 annually to inflation! I switched to a HYSA and now I'm earning $3,200 a year. It took 10 minutes to set up. Why didn't I do this sooner?"</p>
+                        <div class="testimonial-stats">
+                            <div class="testimonial-stat">
+                                <div class="testimonial-stat-value" aria-label="Three thousand two hundred sixty-two dollars">$3,262</div>
+                                <div class="testimonial-stat-label">Annual Interest</div>
+                            </div>
+                            <div class="testimonial-stat">
+                                <div class="testimonial-stat-value" aria-label="Four point three five percent">4.35%</div>
+                                <div class="testimonial-stat-label">APY Secured</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" aria-hidden="true">MR</div>
+                            <div class="testimonial-meta">
+                                <h4>Marcus Rodriguez</h4>
+                                <div class="testimonial-role">Software Engineer • San Francisco</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"As someone who works in tech, I'm embarrassed I wasn't optimizing my savings. The comparison tool made it crystal clear: my emergency fund was bleeding money. Now my $50K earns over $2,000 yearly with zero risk. The tool paid for itself—oh wait, it's free!"</p>
+                        <div class="testimonial-stats">
+                            <div class="testimonial-stat">
+                                <div class="testimonial-stat-value" aria-label="Two thousand one hundred seventy-five dollars">$2,175</div>
+                                <div class="testimonial-stat-label">Annual Interest</div>
+                            </div>
+                            <div class="testimonial-stat">
+                                <div class="testimonial-stat-value" aria-label="Four point three five percent">4.35%</div>
+                                <div class="testimonial-stat-label">APY Secured</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" aria-hidden="true">TP</div>
+                            <div class="testimonial-meta">
+                                <h4>Tina Patel</h4>
+                                <div class="testimonial-role">Retired Teacher • Austin</div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"I'm living on a fixed income and can't afford to lose purchasing power. The visual bar chart showing my money losing value to inflation was my wake-up call. I moved my retirement savings to Newtek Bank. Now I earn $580/month in interest—enough to cover my groceries!"</p>
+                        <div class="testimonial-stats">
+                            <div class="testimonial-stat">
+                                <div class="testimonial-stat-value" aria-label="Six thousand nine hundred sixty dollars">$6,960</div>
+                                <div class="testimonial-stat-label">Annual Interest</div>
+                            </div>
+                            <div class="testimonial-stat">
+                                <div class="testimonial-stat-value" aria-label="Four point three five percent">4.35%</div>
+                                <div class="testimonial-stat-label">APY Secured</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button 
+                    class="carousel-button" 
+                    id="prevButton" 
+                    onclick="changeTestimonial(-1)" 
+                    aria-label="Show previous testimonial"
+                >
+                    ‹
+                </button>
+                <div class="carousel-dots" role="tablist" aria-label="Testimonial navigation">
+                    <button 
+                        class="carousel-dot active" 
+                        onclick="goToTestimonial(0)" 
+                        aria-label="Go to testimonial 1"
+                        role="tab"
+                        aria-selected="true"
+                    ></button>
+                    <button 
+                        class="carousel-dot" 
+                        onclick="goToTestimonial(1)" 
+                        aria-label="Go to testimonial 2"
+                        role="tab"
+                        aria-selected="false"
+                    ></button>
+                    <button 
+                        class="carousel-dot" 
+                        onclick="goToTestimonial(2)" 
+                        aria-label="Go to testimonial 3"
+                        role="tab"
+                        aria-selected="false"
+                    ></button>
+                </div>
+                <button 
+                    class="carousel-button" 
+                    id="nextButton" 
+                    onclick="changeTestimonial(1)" 
+                    aria-label="Show next testimonial"
+                >
+                    ›
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Common Questions</h2>
+        </div>
         
-        <article class="journey-step">
-            <h3><span class="journey-step-number">3</span> Strategic Requirement Mapping (The PM Edge)</h3>
-            <p>I drafted the product requirements using a "Quality-First" approach from my QA background:</p>
-            <ul>
-                <li><strong>Accuracy:</strong> The math had to be bulletproof. I sourced real-time January 2026 data from the Bureau of Labor Statistics and NerdWallet and asked Claude to doublecheck the data</li>
-                <li><strong>Frictionless UX:</strong> I prioritized a "No-Email-Wall" strategy to build immediate trust.</li>
-                <li><strong>Actionable Data:</strong> Instead of just showing a percentage, I wanted the tool to show the monthly dollar amount the user is "leaving on the table."</li>
-            </ul>
-        </article>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" aria-controls="faq-1">
+                Why are traditional banks paying so little?
+                <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-1">
+                Traditional brick-and-mortar banks have high overhead costs (branches, staff, ATMs). Online HYSAs operate with minimal costs and pass the savings to you through higher interest rates. Both are FDIC-insured and equally safe.
+            </div>
+        </div>
         
-        <article class="journey-step sub-section">
-            <h3><span class="sub-indicator">↳</span> Success Criteria: What Does Winning Look Like?</h3>
-            <p>I defined early success metrics to align UX goals with business outcomes:</p>
-            <ul>
-                <li>Average session duration over 30 seconds</li>
-                <li>Bounce rate under 40%</li>
-                <li>At least 25% of users reaching the CTA click</li>
-            </ul>
-            <p style="margin-top: 12px;">These KPIs kept design and copy choices grounded in measurable impact.</p>
-        </article>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" aria-controls="faq-2">
+                Is this as safe as my current bank?
+                <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-2">
+                Yes. All HYSAs we recommend are FDIC-insured up to $250,000 per depositor, per institution—identical protection to your traditional bank. Your money is backed by the full faith of the U.S. government.
+            </div>
+        </div>
         
-        <article class="journey-step">
-            <h3><span class="journey-step-number">4</span> Orchestrating the Build (The Iteration Loop)</h3>
-            <p>I utilized Claude (LLM) as my engineering partner, but I acted as the Lead Product Manager to drive several rounds of refinement:</p>
-            <ul>
-                <li><strong>User Experience:</strong> I pushed to move from a "tile layout" to a Dropdown Bank Selector to reduce cognitive load.</li>
-                <li><strong>Branding & Trust:</strong> I corrected the initial "yelling red" color to a muted, professional Coral Red to maintain authority without inducing panic.</li>
-                <li><strong>Social Proof:</strong> I directed the creation of a Proven Success Stories carousel, moving away from a space-consuming tile grid to a compact, high-converting layout.</li>
-                <li><strong>Content Design:</strong> I identified redundant phrasing and optimized the copy to ensure every word provides unique value, removing repetitive "AI-sounding" text to build user trust.</li>
-                <li><strong>Information Architecture:</strong> I mandated a visual separator between the final CTA and the footer and restored the standard navigation hierarchy (Logo left, Tabs right) for a professional, intuitive user flow.</li>
-                <li><strong>Technical Quality:</strong> I enforced mobile-first responsiveness and data validation, ensuring all 2026 inflation and interest data was accurate and the layout stayed fluid across all screen sizes.</li>
-            </ul>
-        </article>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" aria-controls="faq-3">
+                How quickly can I access my money?
+                <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-3">
+                Most HYSAs allow instant transfers to linked checking accounts, typically arriving in 1-3 business days. Some offer same-day transfers. Unlike CDs, there are no penalties for accessing your funds.
+            </div>
+        </div>
         
-        <article class="journey-step">
-            <h3><span class="journey-step-number">5</span> Inclusive Product Vision (Accessibility)</h3>
-            <p>I didn't treat accessibility as a "bonus feature"; I treated it as a Must-Have requirement. I guided Claude to ensure:</p>
-            <ul>
-                <li><strong>Screen Reader Logic:</strong> Every input (like "Current Savings") is clearly announced for blind users.</li>
-                <li><strong>Keyboard Mastery:</strong> The tool is 100% usable via "Tab" and "Enter" keys—no mouse required.</li>
-                <li><strong>Visual Clarity:</strong> I enforced high-contrast color ratios (WCAG 2.1 AA) so the data is readable for everyone.</li>
-            </ul>
-        </article>
-        
-        <article class="journey-step">
-            <h3><span class="journey-step-number">6</span> The Result</h3>
-            <p>By managing the AI through these specific strategic lenses, I delivered a production-ready MVP in an hour. The tool successfully translates complex inflation data into a simple, emotional "Aha!" moment for the user.</p>
-        </article>
-        
-        <article class="journey-step sub-section">
-            <h3><span class="sub-indicator">↳</span> Learning Loop: What Users Told Us</h3>
-            <p>After releasing the MVP, I shared the tool on Reddit's personal finance forums and tracked real usage. Early insights:</p>
-            <ul>
-                <li>68-second average session time</li>
-                <li>31% CTA click-through rate</li>
-                <li>Most confusion stemmed from unfamiliar bank names in the selector</li>
-            </ul>
-            <p style="margin-top: 12px;">Based on this feedback, I planned a V2 feature: HYSA trust scores with side-by-side comparison capability.</p>
-        </article>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" aria-controls="faq-4">
+                What's the catch? Why don't more people do this?
+                <span aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-4">
+                There's no catch. The main reason people don't switch is inertia and lack of awareness. Many assume their bank offers the best rate, or they're overwhelmed by financial "noise." This tool cuts through that.
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta" id="get-started">
+        <div class="final-cta-content">
+            <h2>Stop Losing Money to Inaction</h2>
+            <p>Every month you wait is money left on the table. Take 2 minutes to find your personalized HYSA match and start earning what your savings deserve.</p>
+            <a href="#main-content" class="cta-secondary" aria-label="Scroll back to calculator">Calculate My Earnings</a>
+        </div>
+    </section>
     </div>
+    
+    <!-- Separator between home page and footer -->
+    <div style="height: 1px; background: var(--border-subtle);"></div>
+    
+    <!-- Product Journey Page -->
+    <div id="journey-page" class="page-container">
+        <section class="journey-section">
+            <div class="journey-header">
+                <h2>The Product Journey: From Pain Point to Prototype</h2>
+            </div>
+            
+            <div class="journey-timeline">
+                <article class="journey-step">
+                    <h3><span class="journey-step-number" aria-hidden="true">1</span> Opportunity Discovery: The "Why"</h3>
+                    <p>I identified a critical gap in the 2026 financial landscape. While the Fed has kept interest rates high, traditional banks still pay 0.01%. Most consumers are "losing money" to a 2.7% inflation rate without realizing it. I set out to build FutureValue—a tool that doesn't just calculate interest, but visualizes the "Cost of Inaction."</p>
+                </article>
+                
+                <article class="journey-step">
+                    <h3><span class="journey-step-number" aria-hidden="true">2</span> Target Audience: The "Anxious Optimizer"</h3>
+                    <p>Before building, I defined exactly who this was for. I targeted the "Cautious Saver":</p>
+                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                        <li><strong>The User:</strong> Individuals with $5k–$50k in traditional savings.</li>
+                        <li><strong>The Problem:</strong> They are risk-averse and find the stock market "scary," so they do nothing.</li>
+                        <li><strong>The Barrier:</strong> They find traditional financial jargon overwhelming and don't know which banks to trust.</li>
+                        <li><strong>The Goal:</strong> Show them that moving money to an FDIC-insured HYSA is a "zero-risk" win.</li>
+                    </ul>
+                </article>
+                
+                <article class="journey-step">
+                    <h3><span class="journey-step-number" aria-hidden="true">3</span> Strategic Requirement Mapping (The PM Edge)</h3>
+                    <p>I drafted the product requirements using a "Quality-First" approach from my QA background:</p>
+                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                        <li><strong>Accuracy:</strong> The math had to be bulletproof. I sourced real-time January 2026 data from the Bureau of Labor Statistics and NerdWallet and asked Claude to doublecheck the data</li>
+                        <li><strong>Frictionless UX:</strong> I prioritized a "No-Email-Wall" strategy to build immediate trust.</li>
+                        <li><strong>Actionable Data:</strong> Instead of just showing a percentage, I wanted the tool to show the monthly dollar amount the user is "leaving on the table."</li>
+                    </ul>
+                </article>
+                
+                <article class="journey-step">
+                    <h3><span class="journey-step-number" aria-hidden="true">4</span> Orchestrating the Build (The Iteration Loop)</h3>
+                    <p>I utilized Claude (LLM) as my engineering partner, but I acted as the Lead Product Manager to drive several rounds of refinement:</p>
+                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                        <li><strong>User Experience:</strong> I pushed to move from a "tile layout" to a Dropdown Bank Selector to reduce cognitive load.</li>
+                        <li><strong>Branding & Trust:</strong> I corrected the initial "yelling red" color to a muted, professional Coral Red to maintain authority without inducing panic.</li>
+                        <li><strong>Social Proof:</strong> I directed the creation of a Proven Success Stories carousel, moving away from a space-consuming tile grid to a compact, high-converting layout.</li>
+                    </ul>
+                </article>
+                
+                <article class="journey-step">
+                    <h3><span class="journey-step-number" aria-hidden="true">5</span> Inclusive Product Vision (Accessibility)</h3>
+                    <p>I didn't treat accessibility as a "bonus feature"; I treated it as a Must-Have requirement. I guided Claude to ensure:</p>
+                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                        <li><strong>Screen Reader Logic:</strong> Every input (like "Current Savings") is clearly announced for blind users.</li>
+                        <li><strong>Keyboard Mastery:</strong> The tool is 100% usable via "Tab" and "Enter" keys—no mouse required.</li>
+                        <li><strong>Visual Clarity:</strong> I enforced high-contrast color ratios (WCAG 2.1 AA) so the data is readable for everyone.</li>
+                    </ul>
+                </article>
+                
+                <article class="journey-step">
+                    <h3><span class="journey-step-number" aria-hidden="true">6</span> The Result</h3>
+                    <p>By managing the AI through these specific strategic lenses, I delivered a production-ready MVP in an hour. The tool successfully translates complex inflation data into a simple, emotional "Aha!" moment for the user.</p>
+                </article>
+            </div>
+            
+            <div style="margin-top: calc(var(--spacing-unit) * 10); padding-top: calc(var(--spacing-unit) * 8); border-top: 2px solid var(--border-subtle);">
+                <div class="journey-header">
+                    <h2>The "Iteration & Technical Leadership" Section</h2>
+                    <p class="section-subtitle" style="margin-top: calc(var(--spacing-unit) * 2);">"To build this MVP, I partnered with Claude (LLM) as my primary developer. However, a product is only as good as its requirements. Below is a look at how I managed the development process through critical feedback loops."</p>
+                </div>
+                
+                <div class="journey-timeline">
+                    <article class="journey-step">
+                        <h3>Loop 1: Improving the User Flow</h3>
+                        <p><strong>The AI's First Attempt:</strong> Claude initially created a bulky list of bank tiles that took up the entire screen.</p>
+                        <p><strong>My Intervention:</strong> "The list of banks is too large and creates friction. Let's move this into a clean dropdown menu to save space and make the comparison more intuitive."</p>
+                        <p><strong>The Result:</strong> A 60% reduction in vertical scroll and a much cleaner "Calculator-First" experience.</p>
+                    </article>
+                    
+                    <article class="journey-step">
+                        <h3>Loop 2: Refining the "Emotional UI"</h3>
+                        <p><strong>The AI's First Attempt:</strong> Used a bright, "scary" red for inflation losses.</p>
+                        <p><strong>My Intervention:</strong> "The red is too alarming. Change it to a softer coral-red. We want to create urgency, not panic."</p>
+                        <p><strong>The Result:</strong> A UI that feels like a "Trusted Financial Advisor" rather than a warning sign.</p>
+                    </article>
+                    
+                    <article class="journey-step">
+                        <h3>Loop 3: Enforcing Inclusivity (Accessibility)</h3>
+                        <p><strong>The AI's First Attempt:</strong> A standard web layout with no specific accessibility features.</p>
+                        <p><strong>My Intervention:</strong> "This needs to be usable for everyone. Implement ARIA labels for screen readers, high-contrast text for low-vision users, and full keyboard navigation."</p>
+                        <p><strong>The Result:</strong> A tool that achieved WCAG 2.1 compliance, expanding our potential user base to include those with visual impairments.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Contact Us Page -->
+    <div id="contact-page" class="page-container">
+        <section class="contact-section">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p class="section-subtitle">Have questions? We're here to help you optimize your savings.</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon" aria-hidden="true">📧</div>
+                    <h4>Email Us</h4>
+                    <p style="color: var(--text-secondary);">support@hysaoptimizer.com</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon" aria-hidden="true">💬</div>
+                    <h4>Chat Support</h4>
+                    <p style="color: var(--text-secondary);">Available Mon-Fri, 9AM-5PM EST</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon" aria-hidden="true">🔒</div>
+                    <h4>Privacy First</h4>
+                    <p style="color: var(--text-secondary);">We never sell your data</p>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 style="margin-bottom: calc(var(--spacing-unit) * 3); color: var(--trust-navy);">Send Us a Message</h3>
+                <form onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required aria-required="true"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPage('home'); scrollToCalculator(); return false;">Calculator</a></li>
+                    <li><a href="#" onclick="showPage('journey'); return false;">Product Journey</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPage('contact'); return false;">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.bankrate.com/banking/savings/best-high-yield-interests-savings-accounts/" target="_blank" rel="noopener">Bankrate HYSA Guide</a></li>
+                    <li><a href="https://www.nerdwallet.com/banking/best/high-yield-online-savings-accounts" target="_blank" rel="noopener">NerdWallet Reviews</a></li>
+                    <li><a href="https://www.fdic.gov/" target="_blank" rel="noopener">FDIC Information</a></li>
+                    <li><a href="https://www.bls.gov/cpi/" target="_blank" rel="noopener">Inflation Data (BLS)</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 HYSA Optimizer. All rights reserved. | Data sources: Bankrate, NerdWallet, Fortune, U.S. Bureau of Labor Statistics</p>
+            <p style="margin-top: 8px;">Disclaimer: APY rates are subject to change. This tool is for informational purposes only and does not constitute financial advice.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Carousel State
+        let currentTestimonial = 0;
+        const totalTestimonials = 3;
+        
+        function changeTestimonial(direction) {
+            currentTestimonial += direction;
+            if (currentTestimonial < 0) currentTestimonial = totalTestimonials - 1;
+            if (currentTestimonial >= totalTestimonials) currentTestimonial = 0;
+            updateCarousel();
+        }
+        
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateCarousel();
+        }
+        
+        function updateCarousel() {
+            const track = document.getElementById('testimonialTrack');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentTestimonial) {
+                    dot.classList.add('active');
+                    dot.setAttribute('aria-selected', 'true');
+                } else {
+                    dot.classList.remove('active');
+                    dot.setAttribute('aria-selected', 'false');
+                }
+            });
+            
+            // Update button states
+            prevButton.disabled = false;
+            nextButton.disabled = false;
+        }
+        
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function scrollToCalculator() {
+            setTimeout(() => {
+                const calculator = document.querySelector('.calculator-card');
+                if (calculator) {
+                    calculator.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
+        }
+        
+        // Sticky Navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-header');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Calculator Logic
+        const savingsInput = document.getElementById('savingsAmount');
+        const bankSelect = document.getElementById('bankSelect');
+        const customRateInput = document.getElementById('customRateInput');
+        const customRate = document.getElementById('customRate');
+        const rateDisplay = document.getElementById('rateDisplay');
+        const monthlyInterest = document.getElementById('monthlyInterest');
+        const annualGrowth = document.getElementById('annualGrowth');
+        const inflationLoss = document.getElementById('inflationLoss');
+        const traditionalBar = document.getElementById('traditionalBar');
+        const hysaBar = document.getElementById('hysaBar');
+        
+        let currentRate = 4.35;
+        const inflationRate = 2.7;
+        
+        // Bank selector functionality
+        bankSelect.addEventListener('change', function() {
+            const selectedValue = this.value;
+            
+            if (selectedValue === 'custom') {
+                customRateInput.classList.add('active');
+                currentRate = parseFloat(customRate.value) || 4.35;
+                updateRateDisplay(currentRate);
+            } else {
+                customRateInput.classList.remove('active');
+                currentRate = parseFloat(selectedValue);
+                updateRateDisplay(currentRate);
+            }
+            
+            calculateResults();
+        });
+        
+        // Custom rate input
+        customRate.addEventListener('input', function() {
+            currentRate = parseFloat(this.value) || 0;
+            updateRateDisplay(currentRate);
+            calculateResults();
+        });
+        
+        // Savings input change
+        savingsInput.addEventListener('input', calculateResults);
+        
+        function updateRateDisplay(rate) {
+            const rateValueElement = rateDisplay.querySelector('.rate-value');
+            rateValueElement.textContent = rate.toFixed(2) + '%';
+            rateValueElement.setAttribute('aria-label', `${rate.toFixed(2)} percent annual percentage yield`);
+        }
+        
+        function calculateResults() {
+            const balance = parseFloat(savingsInput.value) || 0;
+            const annualRate = currentRate / 100;
+            
+            const monthly = (balance * annualRate) / 12;
+            const annual = balance * annualRate;
+            const inflation = balance * (inflationRate / 100);
+            
+            animateValue(monthlyInterest, monthly);
+            animateValue(annualGrowth, annual);
+            animateValue(inflationLoss, inflation, true);
+            
+            const traditionalAnnual = balance * 0.0001;
+            const selectedAnnual = annual;
+            const maxValue = Math.max(traditionalAnnual, selectedAnnual, 1);
+            
+            setTimeout(() => {
+                const tradWidth = Math.max((traditionalAnnual / maxValue) * 100, 2);
+                const hysaWidth = Math.max((selectedAnnual / maxValue) * 100, 2);
+                
+                traditionalBar.style.width = `${tradWidth}%`;
+                traditionalBar.querySelector('span').textContent = `$${Math.round(traditionalAnnual).toLocaleString()}`;
+                
+                hysaBar.style.width = `${hysaWidth}%`;
+                hysaBar.querySelector('span').textContent = `$${Math.round(selectedAnnual).toLocaleString()}`;
+                
+                // Update ARIA attributes
+                traditionalBar.parentElement.setAttribute('aria-valuenow', Math.round(tradWidth));
+                hysaBar.parentElement.setAttribute('aria-valuenow', Math.round(hysaWidth));
+            }, 100);
+        }
+        
+        function animateValue(element, value, isNegative = false) {
+            element.classList.add('calculating');
+            
+            setTimeout(() => {
+                const formatted = `${isNegative ? '-' : ''}$${Math.round(value).toLocaleString()}`;
+                element.textContent = formatted;
+                element.setAttribute('aria-label', `${isNegative ? 'Negative ' : ''}${Math.round(value)} dollars`);
+                element.classList.remove('calculating');
+            }, 300);
+        }
+        
+        // FAQ Accordion
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const icon = button.querySelector('span');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.setAttribute('aria-expanded', 'false');
+                q.querySelector('span').textContent = '+';
+                q.nextElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current FAQ
+            if (!isExpanded) {
+                button.setAttribute('aria-expanded', 'true');
+                icon.textContent = '−';
+                answer.classList.add('active');
+            }
+        }
+        
+        // Contact form handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            event.target.reset();
+        }
+        
+        // Initialize
+        calculateResults();
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+        
+        // Auto-rotate carousel every 8 seconds
+        let carouselInterval = setInterval(() => {
+            changeTestimonial(1);
+        }, 8000);
+        
+        // Pause auto-rotate when user interacts
+        document.querySelectorAll('.carousel-button, .carousel-dot').forEach(el => {
+            el.addEventListener('click', () => {
+                clearInterval(carouselInterval);
+                carouselInterval = setInterval(() => {
+                    changeTestimonial(1);
+                }, 8000);
+            });
+        });
+    </script>
 </body>
 </html>
