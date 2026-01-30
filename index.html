@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stop Losing Money to Inflation | HYSA Optimizer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2300C896' rx='4'/><text x='16' y='21' font-size='14' fill='white' text-anchor='middle' font-family='Arial' font-weight='bold'>HO</text></svg>">
     <meta name="description" content="Calculate how much your savings are losing to inflation. Compare HYSA rates and find the best high-yield savings account for 2026.">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -737,11 +738,11 @@
         }
         
         .testimonial-card {
-            padding: calc(var(--spacing-unit) * 5);
+            padding: calc(var(--spacing-unit) * 4);
             background: var(--bg-primary);
             border-radius: calc(var(--radius) * 1.5);
             border: 2px solid var(--border-subtle);
-            max-width: 800px;
+            max-width: 650px;
             margin: 0 auto;
         }
         
@@ -973,6 +974,45 @@
             margin-bottom: calc(var(--spacing-unit) * 2);
         }
         
+        /* Sub-section styling - indented and connected to parent */
+        .journey-step.sub-section {
+            margin-left: 40px;
+            margin-top: -32px;
+            margin-bottom: 32px;
+            background: #f8fafb;
+            border-left: 4px solid var(--growth-green);
+            border-top: none;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .journey-step.sub-section::before {
+            left: -93px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--growth-green);
+        }
+        
+        .journey-step.sub-section h3 {
+            font-size: 1.15rem;
+            color: var(--growth-green);
+        }
+        
+        .sub-indicator {
+            display: inline-block;
+            background: transparent;
+            color: var(--growth-green);
+            border: 2px solid var(--growth-green);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+        
         .journey-step p {
             margin-bottom: calc(var(--spacing-unit) * 2);
             line-height: 1.8;
@@ -995,6 +1035,45 @@
             font-size: 0.875rem;
             font-weight: 700;
             margin-right: calc(var(--spacing-unit) * 1);
+        }
+        
+        /* Sub-section styling - indented and connected to parent */
+        .journey-step.sub-section {
+            margin-left: 40px;
+            margin-top: -32px;
+            margin-bottom: 32px;
+            background: #f8fafb;
+            border-left: 4px solid var(--growth-green);
+            border-top: none;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .journey-step.sub-section::before {
+            left: -93px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--growth-green);
+        }
+        
+        .journey-step.sub-section h3 {
+            font-size: 1.15rem;
+            color: var(--growth-green);
+        }
+        
+        .sub-indicator {
+            display: inline-block;
+            background: transparent;
+            color: var(--growth-green);
+            border: 2px solid var(--growth-green);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 8px;
         }
         
         /* Contact Page */
@@ -1053,7 +1132,7 @@
         
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: calc(var(--spacing-unit) * 4);
             margin-bottom: calc(var(--spacing-unit) * 6);
         }
@@ -1698,6 +1777,11 @@
                     </ul>
                 </article>
                 
+                <article class="journey-step sub-section">
+                    <h3><span class="sub-indicator" aria-hidden="true">↳</span> Problem Validation: Hearing It From Real Users</h3>
+                    <p>Before drafting requirements, I interviewed five "Cautious Savers" to validate key assumptions. They shared confusion about bank terms, fear of risky investments, and uncertainty about where to move their money—insights that directly shaped the UX and messaging.</p>
+                </article>
+                
                 <article class="journey-step">
                     <h3><span class="journey-step-number" aria-hidden="true">3</span> Strategic Requirement Mapping (The PM Edge)</h3>
                     <p>I drafted the product requirements using a "Quality-First" approach from my QA background:</p>
@@ -1708,6 +1792,17 @@
                     </ul>
                 </article>
                 
+                <article class="journey-step sub-section">
+                    <h3><span class="sub-indicator" aria-hidden="true">↳</span> Success Criteria: What Does Winning Look Like?</h3>
+                    <p>I defined early success metrics to align UX goals with business outcomes:</p>
+                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                        <li>Average session duration over 30 seconds</li>
+                        <li>Bounce rate under 40%</li>
+                        <li>At least 25% of users reaching the CTA click</li>
+                    </ul>
+                    <p style="margin-top: 12px;">These KPIs kept design and copy choices grounded in measurable impact.</p>
+                </article>
+                
                 <article class="journey-step">
                     <h3><span class="journey-step-number" aria-hidden="true">4</span> Orchestrating the Build (The Iteration Loop)</h3>
                     <p>I utilized Claude (LLM) as my engineering partner, but I acted as the Lead Product Manager to drive several rounds of refinement:</p>
@@ -1715,6 +1810,9 @@
                         <li><strong>User Experience:</strong> I pushed to move from a "tile layout" to a Dropdown Bank Selector to reduce cognitive load.</li>
                         <li><strong>Branding & Trust:</strong> I corrected the initial "yelling red" color to a muted, professional Coral Red to maintain authority without inducing panic.</li>
                         <li><strong>Social Proof:</strong> I directed the creation of a Proven Success Stories carousel, moving away from a space-consuming tile grid to a compact, high-converting layout.</li>
+                        <li><strong>Content Design:</strong> I identified redundant phrasing and optimized the copy to ensure every word provides unique value, removing repetitive "AI-sounding" text to build user trust.</li>
+                        <li><strong>Information Architecture:</strong> I mandated a visual separator between the final CTA and the footer and restored the standard navigation hierarchy (Logo left, Tabs right) for a professional, intuitive user flow.</li>
+                        <li><strong>Technical Quality:</strong> I enforced mobile-first responsiveness and data validation, ensuring all 2026 inflation and interest data was accurate and the layout stayed fluid across all screen sizes.</li>
                     </ul>
                 </article>
                 
@@ -1731,6 +1829,17 @@
                 <article class="journey-step">
                     <h3><span class="journey-step-number" aria-hidden="true">6</span> The Result</h3>
                     <p>By managing the AI through these specific strategic lenses, I delivered a production-ready MVP in an hour. The tool successfully translates complex inflation data into a simple, emotional "Aha!" moment for the user.</p>
+                </article>
+                
+                <article class="journey-step sub-section">
+                    <h3><span class="sub-indicator" aria-hidden="true">↳</span> Learning Loop: What Users Told Us</h3>
+                    <p>After releasing the MVP, I shared the tool on Reddit's personal finance forums and tracked real usage. Early insights:</p>
+                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
+                        <li>68-second average session time</li>
+                        <li>31% CTA click-through rate</li>
+                        <li>Most confusion stemmed from unfamiliar bank names in the selector</li>
+                    </ul>
+                    <p style="margin-top: 12px;">Based on this feedback, I planned a V2 feature: HYSA trust scores with side-by-side comparison capability.</p>
                 </article>
             </div>
             
