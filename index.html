@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stop Losing Money to Inflation | HYSA Optimizer</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2300C896' rx='4'/><text x='16' y='21' font-size='14' fill='white' text-anchor='middle' font-family='Arial' font-weight='bold'>HO</text></svg>">
     <meta name="description" content="Calculate how much your savings are losing to inflation. Compare HYSA rates and find the best high-yield savings account for 2026.">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -738,11 +737,11 @@
         }
         
         .testimonial-card {
-            padding: calc(var(--spacing-unit) * 4);
+            padding: calc(var(--spacing-unit) * 5);
             background: var(--bg-primary);
             border-radius: calc(var(--radius) * 1.5);
             border: 2px solid var(--border-subtle);
-            max-width: 650px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
@@ -974,45 +973,6 @@
             margin-bottom: calc(var(--spacing-unit) * 2);
         }
         
-        /* Sub-section styling - indented and connected to parent */
-        .journey-step.sub-section {
-            margin-left: 40px;
-            margin-top: -32px;
-            margin-bottom: 32px;
-            background: #f8fafb;
-            border-left: 4px solid var(--growth-green);
-            border-top: none;
-            border-radius: 0 12px 12px 0;
-        }
-        
-        .journey-step.sub-section::before {
-            left: -93px;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border: 3px solid var(--growth-green);
-        }
-        
-        .journey-step.sub-section h3 {
-            font-size: 1.15rem;
-            color: var(--growth-green);
-        }
-        
-        .sub-indicator {
-            display: inline-block;
-            background: transparent;
-            color: var(--growth-green);
-            border: 2px solid var(--growth-green);
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-right: 8px;
-        }
-        
         .journey-step p {
             margin-bottom: calc(var(--spacing-unit) * 2);
             line-height: 1.8;
@@ -1035,45 +995,6 @@
             font-size: 0.875rem;
             font-weight: 700;
             margin-right: calc(var(--spacing-unit) * 1);
-        }
-        
-        /* Sub-section styling - indented and connected to parent */
-        .journey-step.sub-section {
-            margin-left: 40px;
-            margin-top: -32px;
-            margin-bottom: 32px;
-            background: #f8fafb;
-            border-left: 4px solid var(--growth-green);
-            border-top: none;
-            border-radius: 0 12px 12px 0;
-        }
-        
-        .journey-step.sub-section::before {
-            left: -93px;
-            width: 16px;
-            height: 16px;
-            background: white;
-            border: 3px solid var(--growth-green);
-        }
-        
-        .journey-step.sub-section h3 {
-            font-size: 1.15rem;
-            color: var(--growth-green);
-        }
-        
-        .sub-indicator {
-            display: inline-block;
-            background: transparent;
-            color: var(--growth-green);
-            border: 2px solid var(--growth-green);
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-right: 8px;
         }
         
         /* Contact Page */
@@ -1132,7 +1053,7 @@
         
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: calc(var(--spacing-unit) * 4);
             margin-bottom: calc(var(--spacing-unit) * 6);
         }
@@ -1364,7 +1285,6 @@
             <div class="nav-links">
                 <a href="#" class="nav-link active" data-page="home" onclick="showPage('home'); return false;" aria-label="Go to Home page">Home</a>
                 <a href="#" class="nav-link" data-page="journey" onclick="showPage('journey'); return false;" aria-label="Go to Product Journey page">Product Journey</a>
-                <a href="#" class="nav-link" data-page="reflections" onclick="showPage('reflections'); return false;" aria-label="Go to Reflections page">Reflections</a>
                 <a href="#" class="nav-link" data-page="contact" onclick="showPage('contact'); return false;" aria-label="Go to Contact Us page">Contact Us</a>
             </div>
         </div>
@@ -1381,8 +1301,8 @@
                 <p class="hero-subtitle">While you earn 0.01% in a traditional savings account, inflation at 2.7% is eroding your purchasing power. Discover how much you're losing—and how to fix it.</p>
                 
                 <div class="stat-highlight">
-                    <div class="stat-value" aria-label="One thousand three hundred fifty dollars">$1,350</div>
-                    <div class="stat-label">Average annual loss for $50K in a traditional account vs. HYSA (based on 4.35% APY)</div>
+                    <div class="stat-value" aria-label="One thousand sixty-two dollars">$1,062</div>
+                    <div class="stat-label">Average annual gain switching $50K from 0.01% to a HYSA (based on ~4.25% APY)</div>
                 </div>
             </div>
             
@@ -1417,15 +1337,15 @@
                             aria-label="Choose a bank or select custom rate option"
                             aria-describedby="bank-hint"
                         >
-                            <option value="4.35" data-bank="newtek">Newtek Bank - 4.35% APY</option>
-                            <option value="5.00" data-bank="varo">Varo Money - 5.00% APY</option>
-                            <option value="4.31" data-bank="axos">Axos Bank - 4.31% APY</option>
-                            <option value="4.20" data-bank="bread">Bread Savings - 4.20% APY</option>
-                            <option value="4.20" data-bank="openbank">Openbank - 4.20% APY</option>
-                            <option value="4.00" data-bank="barclays">Barclays - 4.00% APY</option>
-                            <option value="3.85" data-bank="cit">CIT Bank - 3.85% APY</option>
+                            <option value="4.10" data-bank="newtek">Marcus by Goldman Sachs - 4.10% APY</option>
+                            <option value="4.25" data-bank="varo">Ally Bank - 4.25% APY</option>
+                            <option value="4.20" data-bank="axos">American Express HYSA - 4.20% APY</option>
+                            <option value="4.15" data-bank="bread">Discover Online Savings - 4.15% APY</option>
+                            <option value="4.00" data-bank="openbank">Capital One 360 - 4.00% APY</option>
+                            <option value="3.90" data-bank="barclays">Barclays - 3.90% APY</option>
+                            <option value="3.80" data-bank="cit">CIT Bank - 3.80% APY</option>
                             <option value="4.00" data-bank="sofi">SoFi - 4.00% APY</option>
-                            <option value="4.00" data-bank="valley">Valley Direct - 4.00% APY</option>
+                            <option value="3.75" data-bank="valley">Synchrony Bank - 3.75% APY</option>
                             <option value="0.01" data-bank="traditional">Traditional Bank - 0.01% APY</option>
                             <option value="custom" data-bank="custom">Custom Rate (Enter Your Own)</option>
                         </select>
@@ -1433,7 +1353,7 @@
                     </div>
                     <div class="bank-rate-display" id="rateDisplay" role="status" aria-live="polite">
                         <div class="rate-label">Current APY Selected</div>
-                        <div class="rate-value" aria-label="Four point three five percent annual percentage yield">4.35%</div>
+                        <div class="rate-value" aria-label="Four point two five percent annual percentage yield">4.25%</div>
                     </div>
                     <div class="custom-rate-input" id="customRateInput">
                         <label for="customRate" class="input-label">Enter Custom APY</label>
@@ -1441,7 +1361,7 @@
                             <input 
                                 type="number" 
                                 id="customRate" 
-                                value="4.35" 
+                                value="4.25" 
                                 min="0" 
                                 max="10" 
                                 step="0.01"
@@ -1457,11 +1377,11 @@
                 <div class="results" role="region" aria-label="Calculation results" aria-live="polite">
                     <div class="result-item">
                         <span class="result-label">Monthly Interest Earned</span>
-                        <span class="result-value positive" id="monthlyInterest" aria-label="Monthly interest amount">$181</span>
+                        <span class="result-value positive" id="monthlyInterest" aria-label="Monthly interest amount">$177</span>
                     </div>
                     <div class="result-item">
                         <span class="result-label">Annual Growth</span>
-                        <span class="result-value positive" id="annualGrowth" aria-label="Annual growth amount">$2,175</span>
+                        <span class="result-value positive" id="annualGrowth" aria-label="Annual growth amount">$2,125</span>
                     </div>
                     <div class="result-item">
                         <span class="result-label">Lost to Inflation (2.7%)</span>
@@ -1481,10 +1401,10 @@
                             </div>
                         </div>
                         <div class="bar-row">
-                            <div class="bar-label">HYSA (4.35%)</div>
+                            <div class="bar-label">HYSA (~4.25%)</div>
                             <div class="bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="High-yield savings account annual earnings">
                                 <div class="bar-fill" id="hysaBar" style="width: 100%;">
-                                    <span aria-hidden="true">$2,175</span>
+                                    <span aria-hidden="true">$2,125</span>
                                 </div>
                             </div>
                         </div>
@@ -1555,8 +1475,8 @@
     <section class="social-proof">
         <div class="proof-stats">
             <div class="stat-card">
-                <div class="stat-number" aria-label="Four hundred thirty-five times">435×</div>
-                <div class="stat-description">Higher returns than traditional savings (4.35% vs 0.01%)</div>
+                <div class="stat-number" aria-label="Four hundred twenty-five times">425×</div>
+                <div class="stat-description">Higher returns than traditional savings (~4.25% vs 0.01%)</div>
             </div>
             
             <div class="stat-card">
@@ -1592,11 +1512,11 @@
                         <p class="testimonial-text">"I had $75,000 sitting in my checking account earning nothing. This calculator showed me I was losing over $2,000 annually to inflation! I switched to a HYSA and now I'm earning $3,200 a year. It took 10 minutes to set up. Why didn't I do this sooner?"</p>
                         <div class="testimonial-stats">
                             <div class="testimonial-stat">
-                                <div class="testimonial-stat-value" aria-label="Three thousand two hundred sixty-two dollars">$3,262</div>
+                                <div class="testimonial-stat-value" aria-label="Three thousand one hundred eighty-seven dollars">$3,187</div>
                                 <div class="testimonial-stat-label">Annual Interest</div>
                             </div>
                             <div class="testimonial-stat">
-                                <div class="testimonial-stat-value" aria-label="Four point three five percent">4.35%</div>
+                                <div class="testimonial-stat-value" aria-label="Four point two five percent">4.25%</div>
                                 <div class="testimonial-stat-label">APY Secured</div>
                             </div>
                         </div>
@@ -1615,11 +1535,11 @@
                         <p class="testimonial-text">"As someone who works in tech, I'm embarrassed I wasn't optimizing my savings. The comparison tool made it crystal clear: my emergency fund was bleeding money. Now my $50K earns over $2,000 yearly with zero risk. The tool paid for itself—oh wait, it's free!"</p>
                         <div class="testimonial-stats">
                             <div class="testimonial-stat">
-                                <div class="testimonial-stat-value" aria-label="Two thousand one hundred seventy-five dollars">$2,175</div>
+                                <div class="testimonial-stat-value" aria-label="Two thousand one hundred twenty-five dollars">$2,125</div>
                                 <div class="testimonial-stat-label">Annual Interest</div>
                             </div>
                             <div class="testimonial-stat">
-                                <div class="testimonial-stat-value" aria-label="Four point three five percent">4.35%</div>
+                                <div class="testimonial-stat-value" aria-label="Four point two five percent">4.25%</div>
                                 <div class="testimonial-stat-label">APY Secured</div>
                             </div>
                         </div>
@@ -1638,11 +1558,11 @@
                         <p class="testimonial-text">"I'm living on a fixed income and can't afford to lose purchasing power. The visual bar chart showing my money losing value to inflation was my wake-up call. I moved my retirement savings to Newtek Bank. Now I earn $580/month in interest—enough to cover my groceries!"</p>
                         <div class="testimonial-stats">
                             <div class="testimonial-stat">
-                                <div class="testimonial-stat-value" aria-label="Six thousand nine hundred sixty dollars">$6,960</div>
+                                <div class="testimonial-stat-value" aria-label="Six thousand eight hundred dollars">$6,800</div>
                                 <div class="testimonial-stat-label">Annual Interest</div>
                             </div>
                             <div class="testimonial-stat">
-                                <div class="testimonial-stat-value" aria-label="Four point three five percent">4.35%</div>
+                                <div class="testimonial-stat-value" aria-label="Four point two five percent">4.25%</div>
                                 <div class="testimonial-stat-label">APY Secured</div>
                             </div>
                         </div>
@@ -1758,333 +1678,63 @@
     <div id="journey-page" class="page-container">
         <section class="journey-section">
             <div class="journey-header">
-                <h2>The Product Journey: From Pain Point to Prototype</h2>
-                <p class="section-subtitle" style="margin-top: calc(var(--spacing-unit) * 2); max-width: 800px; margin-left: auto; margin-right: auto;">Millions of Americans keep their savings in accounts earning 0.01% while inflation erodes purchasing power at 2.7% annually. I built FutureValue to make the invisible cost of inaction impossible to ignore.</p>
+                <h2>Case Study: HYSA Savings Calculator</h2>
+                <p class="section-subtitle" style="margin-top: calc(var(--spacing-unit) * 2); max-width: 600px; margin-left: auto; margin-right: auto;">A consumer fintech tool that shows people exactly how much money they lose by keeping savings in a low-yield account. Built, tested, and iterated in under a week.</p>
             </div>
-            
-            <div class="journey-timeline">
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">1</span> Opportunity Discovery: The "Why"</h3>
-                    <p>I identified a critical gap in the 2026 financial landscape. While the Fed has kept interest rates high (4.5%), traditional banks still pay 0.01%. Most consumers are "losing money" to a 2.7% inflation rate without realizing it. I set out to build FutureValue—a tool that doesn't just calculate interest, but visualizes the "Cost of Inaction."</p>
-                    <p style="margin-top: 12px;"><strong>Market Differentiation:</strong> While competitors like NerdWallet offered static comparison tables, no tool provided an immediate, personalized "cost of inaction" calculator with zero friction (no signup required) and emotional anchoring (showing dollar losses, not just percentages).</p>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">2</span> Target Audience: The "Anxious Optimizer"</h3>
-                    <p>Before building, I defined exactly who this was for. I targeted the "Cautious Saver":</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>The User:</strong> Individuals with $5k–$50k in traditional savings.</li>
-                        <li><strong>The Problem:</strong> They are risk-averse and find the stock market "scary," so they do nothing.</li>
-                        <li><strong>The Barrier:</strong> They find traditional financial jargon overwhelming and don't know which banks to trust.</li>
-                        <li><strong>The Goal:</strong> Show them that moving money to an FDIC-insured HYSA is a "zero-risk" win.</li>
-                    </ul>
-                </article>
-                
-                <article class="journey-step sub-section">
-                    <h3><span class="sub-indicator" aria-hidden="true">↳</span> Problem Validation: Hearing It From Real Users</h3>
-                    <p>Before drafting requirements, I interviewed five "Cautious Savers" (45-min semi-structured interviews) to validate key assumptions. Key insights that shaped the product:</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>"I don't know which online banks are legitimate"</strong> → Added FDIC-insured badges and recognizable bank logos for trust signals</li>
-                        <li><strong>"I know I should move my money, but I keep procrastinating"</strong> → Calculator shows monthly losses (e.g., "You're leaving $67.50/month on the table") to create urgency</li>
-                        <li><strong>"Financial jargon is overwhelming"</strong> → Used plain language throughout, avoiding terms like "APY vs. APR"</li>
-                    </ul>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">3</span> Strategic Requirement Mapping</h3>
-                    <p>I drafted the product requirements using a "Quality-First" approach from my QA background:</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>Accuracy:</strong> The math had to be bulletproof. I sourced real-time January 2026 data from the Bureau of Labor Statistics and NerdWallet and asked Claude to doublecheck the data</li>
-                        <li><strong>Frictionless UX:</strong> I prioritized a "No-Email-Wall" strategy to build immediate trust.</li>
-                        <li><strong>Actionable Data:</strong> Instead of just showing a percentage, I wanted the tool to show the monthly dollar amount the user is "leaving on the table."</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Features I Intentionally Cut (V2 Roadmap):</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>HYSA Trust Scores:</strong> User-generated ratings required moderation infrastructure—deferred to validate core calculator first</li>
-                        <li><strong>Multi-Account Tracking:</strong> Useful for &lt;10% of users per research—focused on single-account use case for MVP</li>
-                        <li><strong>Email Reminders:</strong> "Check your rate quarterly" nudges required backend + email service—prioritized immediate value over retention features</li>
-                    </ul>
-                </article>
-                
-                <article class="journey-step sub-section">
-                    <h3><span class="sub-indicator" aria-hidden="true">↳</span> Success Criteria: What Does Winning Look Like?</h3>
-                    <p>I defined early success metrics to align UX goals with business outcomes:</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li>Average session duration over 30 seconds</li>
-                        <li>Bounce rate under 40%</li>
-                        <li>At least 25% of users reaching the CTA click</li>
-                    </ul>
-                    <p style="margin-top: 12px;">These KPIs kept design and copy choices grounded in measurable impact.</p>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">4</span> Orchestrating the Build (The Iteration Loop)</h3>
-                    <p>I used AI as a development accelerator, but acted as the Lead Product Manager to drive several rounds of refinement. Key design decisions I made:</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>User Experience:</strong> I pushed to move from a "tile layout" to a Dropdown Bank Selector to reduce cognitive load (60% reduction in vertical scroll).</li>
-                        <li><strong>Branding & Trust:</strong> I corrected the initial "yelling red" color to a muted, professional Coral Red to maintain authority without inducing panic.</li>
-                        <li><strong>Social Proof:</strong> I directed the creation of a Proven Success Stories carousel, moving away from a space-consuming tile grid to a compact, high-converting layout.</li>
-                        <li><strong>Content Design:</strong> I identified redundant phrasing and optimized the copy to ensure every word provides unique value, removing repetitive "AI-sounding" text to build user trust.</li>
-                        <li><strong>Information Architecture:</strong> I mandated a visual separator between the final CTA and the footer and restored the standard navigation hierarchy (Logo left, Tabs right) for a professional, intuitive user flow.</li>
-                        <li><strong>Technical Quality:</strong> I enforced mobile-first responsiveness and data validation, ensuring all 2026 inflation and interest data was accurate and the layout stayed fluid across all screen sizes.</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Critical Product Decisions:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>Real-Time API vs. Static Rates:</strong> Chose manually updated rates (monthly from NerdWallet) over API integration—rates change slowly (quarterly), and static data avoided complexity + cost for MVP validation</li>
-                        <li><strong>Backend User Accounts vs. Client-Side Only:</strong> Chose client-side calculator (no data persistence)—80% of value is in the immediate "aha!" moment; persistence didn't justify development overhead for portfolio demonstration</li>
-                    </ul>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">5</span> Inclusive Product Vision (Accessibility)</h3>
-                    <p>I didn't treat accessibility as a "bonus feature"; I treated it as a Must-Have requirement. I guided Claude to ensure:</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>Screen Reader Logic:</strong> Every input (like "Current Savings") is clearly announced for blind users.</li>
-                        <li><strong>Keyboard Mastery:</strong> The tool is 100% usable via "Tab" and "Enter" keys—no mouse required.</li>
-                        <li><strong>Visual Clarity:</strong> I enforced high-contrast color ratios (WCAG 2.1 AA) so the data is readable for everyone.</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Result:</strong> Lighthouse accessibility score of 97/100, fully compliant with WCAG 2.1 AA standards.</p>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">6</span> Compliance & Risk Mitigation</h3>
-                    <p>Financial calculators can be misinterpreted as "financial advice." To mitigate legal risk, I proactively:</p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li>Added disclaimer: "This tool is for educational purposes only. Not financial advice."</li>
-                        <li>Used conditional language: "Consider" vs. "You should"</li>
-                        <li>Cited sources: Linked to NerdWallet and Bureau of Labor Statistics for transparency</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>If this were a production product:</strong> Would consult legal team on SEC/FINRA regulations, implement Terms of Service and Privacy Policy, and ensure GDPR-compliant analytics setup.</p>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">7</span> Launch & Validation (2-Week Test Period)</h3>
-                    <p><strong>Distribution Strategy:</strong> Posted to Reddit (r/personalfinance, r/financialindependence), HackerNews, and direct shares via LinkedIn to gather real user feedback.</p>
-                    <p style="margin-top: 12px;"><strong>Analytics Instrumentation:</strong> Set up Google Analytics 4 to track engagement time, CTA clicks, and bank selections—demonstrating familiarity with modern analytics tools.</p>
-                </article>
-                
-                <article class="journey-step sub-section">
-                    <h3><span class="sub-indicator" aria-hidden="true">↳</span> Results: Validated Success Metrics</h3>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>247 unique sessions</strong> across personal finance communities</li>
-                        <li><strong>68-second average session time</strong> (target: 30s) ✓ Exceeded</li>
-                        <li><strong>31% CTA click-through rate</strong> (target: 25%) ✓ Exceeded</li>
-                        <li><strong>38% bounce rate</strong> (target: &lt;40%) ✓ Met</li>
-                        <li><strong>Top bank selections:</strong> Ally, Marcus, Capital One 360</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>User Feedback Themes:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li>"Finally, a calculator that shows me real dollars, not just percentages"</li>
-                        <li>"Love that I don't have to sign up to use it"</li>
-                        <li>"The graph makes it so obvious I'm losing money"</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Key Learning:</strong> 40% of users selected "0.01% (Traditional Bank)" as their current rate—many don't even know their APY. V2 iteration should add a "Find your bank's rate" helper tool.</p>
-                </article>
-                
-                <article class="journey-step">
-                    <h3><span class="journey-step-number" aria-hidden="true">8</span> V2 Roadmap (Based on User Feedback)</h3>
-                    <p><strong>Planned Features:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>HYSA Trust Scores:</strong> Community-driven ratings + "FDIC-insured since [year]" to address "Is this bank safe?" confusion</li>
-                        <li><strong>Rate Change Alerts:</strong> Optional email signup for "Your bank dropped their rate" notifications (15% email capture target)</li>
-                        <li><strong>Comparison Mode:</strong> Side-by-side comparison of 2-3 HYSAs for users who want detailed analysis</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Long-Term Vision (If Scaled):</strong> Affiliate partnerships with HYSAs ($50-150 per referral), expansion to CD rates and money market accounts, ML-driven personalization ("Based on your $25k savings, we recommend...").</p>
-                </article>
-            </div>
-            
-            <div style="margin-top: calc(var(--spacing-unit) * 10); padding-top: calc(var(--spacing-unit) * 8); border-top: 2px solid var(--border-subtle);">
-                <div class="journey-header">
-                    <h2>The "Iteration & Technical Leadership" Section</h2>
-                    <p class="section-subtitle" style="margin-top: calc(var(--spacing-unit) * 2);">A product is only as good as its requirements. Below is a look at how I managed the development process through critical feedback loops, using AI as a development accelerator while maintaining full ownership of product decisions.</p>
+
+            <!-- Outcome stats bar -->
+            <div style="display:grid; grid-template-columns: repeat(3,1fr); gap: calc(var(--spacing-unit)*3); margin-bottom: calc(var(--spacing-unit)*8);">
+                <div style="background:white; border:2px solid var(--border-subtle); border-radius:var(--radius); padding: calc(var(--spacing-unit)*4); text-align:center;">
+                    <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:var(--growth-green); line-height:1;">247</div>
+                    <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">unique sessions, first 2 weeks</div>
                 </div>
-                
-                <div class="journey-timeline">
-                    <article class="journey-step">
-                        <h3>Loop 1: Improving the User Flow</h3>
-                        <p><strong>The AI's First Attempt:</strong> Claude initially created a bulky list of bank tiles that took up the entire screen.</p>
-                        <p><strong>My Intervention:</strong> "The list of banks is too large and creates friction. Let's move this into a clean dropdown menu to save space and make the comparison more intuitive."</p>
-                        <p><strong>The Result:</strong> A 60% reduction in vertical scroll and a much cleaner "Calculator-First" experience.</p>
-                    </article>
-                    
-                    <article class="journey-step">
-                        <h3>Loop 2: Refining the "Emotional UI"</h3>
-                        <p><strong>The AI's First Attempt:</strong> Used a bright, "scary" red for inflation losses.</p>
-                        <p><strong>My Intervention:</strong> "The red is too alarming. Change it to a softer coral-red. We want to create urgency, not panic."</p>
-                        <p><strong>The Result:</strong> A UI that feels like a "Trusted Financial Advisor" rather than a warning sign.</p>
-                    </article>
-                    
-                    <article class="journey-step">
-                        <h3>Loop 3: Enforcing Inclusivity (Accessibility)</h3>
-                        <p><strong>The AI's First Attempt:</strong> A standard web layout with no specific accessibility features.</p>
-                        <p><strong>My Intervention:</strong> "This needs to be usable for everyone. Implement ARIA labels for screen readers, high-contrast text for low-vision users, and full keyboard navigation."</p>
-                        <p><strong>The Result:</strong> A tool that achieved WCAG 2.1 compliance, expanding our potential user base to include those with visual impairments.</p>
-                    </article>
+                <div style="background:white; border:2px solid var(--border-subtle); border-radius:var(--radius); padding: calc(var(--spacing-unit)*4); text-align:center;">
+                    <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:var(--growth-green); line-height:1;">68s</div>
+                    <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">avg session (target: 30s)</div>
+                </div>
+                <div style="background:white; border:2px solid var(--border-subtle); border-radius:var(--radius); padding: calc(var(--spacing-unit)*4); text-align:center;">
+                    <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:var(--growth-green); line-height:1;">31%</div>
+                    <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:6px;">CTA click-through (target: 25%)</div>
                 </div>
             </div>
-        </section>
-    </div>
-    
-    <!-- Reflections Page -->
-    <div id="reflections-page" class="page-container">
-        <section class="journey-section">
-            <div class="journey-header">
-                <h2>Critical Thinking: Risks, Trade-offs & Scale</h2>
-            </div>
-            
+
             <div class="journey-timeline">
                 <article class="journey-step">
-                    <h3>Potential Issue #1: The Feedback Gap</h3>
-                    <p><strong>The Risk:</strong> By prioritizing a frictionless, no-signup experience, I eliminated the ability to gather direct user feedback within the tool itself. I'm relying entirely on behavioral data (GA4) and external comments (Reddit), which creates blind spots.</p>
-                    <p style="margin-top: 12px;"><strong>What Could Go Wrong:</strong> Users might find the tool confusing or unhelpful, but I'd have no way to know beyond bounce rates. I'm only hearing from the most vocal users, missing the silent majority.</p>
-                    <p style="margin-top: 12px;"><strong>How I'd Mitigate This:</strong> Add a lightweight feedback mechanism—a simple 1-5 star rating below the results with an optional comment field. This balances "no signup required" with "actionable user sentiment." Even 10-15% response rate would provide directional signals for iteration.</p>
-                    <p style="margin-top: 12px;"><strong>The Lesson:</strong> Frictionless UX and user feedback aren't mutually exclusive. In V2, I'd design feedback collection that respects user privacy while still enabling product improvement.</p>
+                    <h3>The problem</h3>
+                    <p>Most people with savings have never moved them to a HYSA. Not because they don't want better returns, but because nothing makes the cost feel real. Bankrate shows tables. NerdWallet shows percentages. Nobody shows you that $30k sitting in a checking account is costing you around $106 per month.</p>
+                    <p>The target user was not a finance person. Just someone with money sitting somewhere, who never had a strong enough reason to act. I validated this by talking to five people in that situation before writing a single requirement. Every one of them said the same thing: they knew they should do something, they just never did. That was enough to move forward.</p>
+                    <p>The goal was simple: show the dollar amount they are leaving behind and let them do something about it in under 30 seconds.</p>
                 </article>
-                
-                                <article class="journey-step">
-                    <h3>Scaling Scenario: From Solo MVP to $500K Product</h3>
-                    <p><strong>The Challenge:</strong> This project validated the concept at minimal cost. But how would the approach change with real resources—a $500K budget and a 5-person team?</p>
-                    <p><strong>Team Structure:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li>1 Product Manager (me)</li>
-                        <li>2 Engineers (1 frontend, 1 backend)</li>
-                        <li>1 Product Designer</li>
-                        <li>1 Growth/Analytics specialist</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Phase 1 (Months 1-3): Infrastructure</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li>Backend API for real-time rate updates (partner with Plaid or similar)</li>
-                        <li>User accounts (optional, for saving comparisons)</li>
-                        <li>A/B testing framework</li>
-                        <li>Legal review of disclaimers with fintech counsel</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Phase 2 (Months 4-6): Scaled Features</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li>HYSA trust scores with moderation system</li>
-                        <li>Email rate-change alerts (build vs. buy decision on email service)</li>
-                        <li>Mobile app (React Native) since 60% of traffic is mobile</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Phase 3 (Months 7-9): Monetization</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li>Affiliate partnerships with 3-5 top HYSAs</li>
-                        <li>Revenue target: $50K MRR (assuming 2% conversion on 50K monthly users)</li>
-                    </ul>
-                    <p style="margin-top: 12px;"><strong>Key Change in Approach:</strong> I'd spend the first month doing competitive analysis and 20+ user interviews instead of building fast. With budget, you can afford to validate more deeply upfront.</p>
-                </article>
-                
+
                 <article class="journey-step">
-                    <h3>Collaboration Strategy: Handling Design Disagreements</h3>
-                    <p><strong>The Scenario:</strong> I made design decisions solo (like the coral red color choice). In a team environment, a designer might push back on color, layout, or UX decisions. How do I balance strong product opinions with respecting design expertise?</p>
-                    <p style="margin-top: 12px;"><strong>My Approach:</strong></p>
-                    <p style="margin-top: 8px;"><strong>First, I'd ask for their reasoning:</strong> "Walk me through your concern—is it about accessibility (contrast ratios), emotional response, or brand consistency?"</p>
-                    <p style="margin-top: 8px;"><strong>Then I'd share my rationale:</strong> "I chose coral red because bright red tested as 'alarming' in user feedback, but I wanted to maintain urgency without panic. What alternatives would achieve that balance?"</p>
-                    <p style="margin-top: 8px;"><strong>Then we'd test:</strong> If it's a close call, I'd propose: "Let's A/B test three options—your recommendation, my coral red, and a compromise option. We'll measure bounce rate and CTA click-through. Data decides."</p>
-                    <p style="margin-top: 12px;"><strong>The Principle:</strong> I have strong opinions loosely held. Design is a craft, and I'd defer to expertise while ensuring we're aligned on the user outcome we're trying to drive. If the designer can make a more compelling case than "looks better," I'm changing my mind.</p>
+                    <h3>What I built and what I cut</h3>
+                    <p>The MVP had one job: show someone their number and give them a path to act. Everything else was V2. I cut user accounts, saved comparisons, and email rate alerts because none of them were needed to deliver that core moment. Adding them would have slowed the build and added friction before the tool had proven any value.</p>
+                    <p><strong>No signup.</strong> The value happens the moment someone sees their number. Adding a signup before that kills the whole point. Email capture only makes sense in V2 as a trade for rate alerts, not as a barrier.</p>
+                    <p><strong>Dropdown instead of bank tiles.</strong> The first version showed every bank as a tile. It looked complete, but pushed the calculator below the fold. Users are here to see one number. The bank choice is secondary. Switching to a dropdown cut vertical scroll by around 60%.</p>
+                    <p><strong>Coral instead of red.</strong> The first pass used bright red for loss amounts. It felt alarming. The goal was to create enough urgency to act, not to make people anxious. A softer coral kept the emotional signal without the panic.</p>
                 </article>
-                
+
                 <article class="journey-step">
-                    <h3>Real Trade-Offs: The Either/Or Decisions</h3>
-                    
-                    <p style="margin-top: 16px;"><strong>Trade-off #1: Real-Time API vs. Static Rate Data</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>Option A - Real-Time API (Plaid/RapidAPI):</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Always current rates, better user trust</li>
-                                <li>✅ Automatic updates, no manual work</li>
-                                <li>❌ $200-500/month API costs</li>
-                                <li>❌ Complex infrastructure, rate limits, potential downtime</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Option B - Static Rates (Manual Updates):</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Free, simple, no dependencies</li>
-                                <li>✅ Faster page load, no API latency</li>
-                                <li>❌ Manual updates required (monthly work)</li>
-                                <li>❌ Risk of showing outdated rates</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Decision:</strong> Chose static rates for MVP. HYSA rates change quarterly at most, so monthly updates are sufficient. Would switch to API only after reaching 10K monthly users to justify the cost/complexity.</li>
-                    </ul>
-                    
-                    <p style="margin-top: 16px;"><strong>Trade-off #2: User Accounts vs. Anonymous Calculator</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>Option A - User Accounts (Signup Required):</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Can save comparisons, send rate alerts</li>
-                                <li>✅ Build email list for marketing</li>
-                                <li>✅ Track user behavior across sessions</li>
-                                <li>❌ Massive friction—conversion drop of 60-80%</li>
-                                <li>❌ Privacy concerns, GDPR compliance needed</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Option B - Anonymous Calculator (No Signup):</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Zero friction—instant value</li>
-                                <li>✅ Builds trust (privacy-first)</li>
-                                <li>✅ Higher conversion rate</li>
-                                <li>❌ Can't save user data or send follow-ups</li>
-                                <li>❌ No email list for growth</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Decision:</strong> Chose anonymous for MVP. My hypothesis was that "Cost of Inaction" message is powerful enough to drive action without nurturing. Could add optional signup in V2 for users who want rate alerts—make it value-add, not a gate.</li>
-                    </ul>
-                    
-                    <p style="margin-top: 16px;"><strong>Trade-off #3: Dropdown Selector vs. Visual Bank Tiles</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>Option A - Visual Bank Tiles (Grid Layout):</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Shows all options at once (browsability)</li>
-                                <li>✅ Bank logos build trust visually</li>
-                                <li>✅ Feels like shopping/comparing</li>
-                                <li>❌ Takes up huge screen space (requires scroll)</li>
-                                <li>❌ Overwhelming—15 options create decision paralysis</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Option B - Dropdown Selector:</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Compact—calculator stays above the fold</li>
-                                <li>✅ Cleaner, more professional UI</li>
-                                <li>✅ Faster for users who know what they want</li>
-                                <li>❌ Hidden options—requires active selection</li>
-                                <li>❌ Less visual brand recognition</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Decision:</strong> Chose dropdown. Users coming to this tool already know they need a HYSA—they're in "solution mode," not "research mode." Prioritized speed to first calculation over browsing. Users can still see rate comparisons in the results.</li>
-                    </ul>
-                    
-                    <p style="margin-top: 16px;"><strong>Trade-off #4: Mobile App vs. Mobile-Responsive Web</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>Option A - Native Mobile App (iOS/Android):</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Best mobile experience, push notifications</li>
-                                <li>✅ App store visibility, offline access</li>
-                                <li>❌ 3-6 months development time</li>
-                                <li>❌ App store approval, maintenance burden</li>
-                                <li>❌ Download friction—most won't install</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Option B - Mobile-Responsive Web Only:</strong>
-                            <ul style="margin-left: 20px; margin-top: 4px;">
-                                <li>✅ Zero download friction—instant access</li>
-                                <li>✅ One codebase, faster to ship</li>
-                                <li>✅ Works on all devices immediately</li>
-                                <li>❌ Can't send push notifications</li>
-                                <li>❌ Less engagement (no app icon on home screen)</li>
-                            </ul>
-                        </li>
-                        <li style="margin-top: 8px;"><strong>Decision:</strong> Chose responsive web. This is a one-time-use calculator, not a habit-forming app. Users don't need push notifications for something they'll use once or twice. Would only build native app if we added recurring features like rate monitoring.</li>
-                    </ul>
+                    <h3>Launch</h3>
+                    <p>I did not have a marketing budget or an audience. So I went where the target user already was: Reddit personal finance communities and a direct share on LinkedIn. The reasoning was simple. Reddit gave volume from people already thinking about money. LinkedIn gave reach to people who might share it further. No paid spend, just distribution to the right rooms.</p>
+                    <p>247 unique sessions in the first two weeks confirmed the framing worked. People were staying long enough to engage and clicking through at a higher rate than the target.</p>
                 </article>
-                
-<article class="journey-step">
-                    <h3>Potential Optimizations: What I'd Test in V2</h3>
-                    <p><strong>Beyond the current MVP, here are hypotheses I'd validate with more time and resources:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 12px; line-height: 1.8;">
-                        <li><strong>Competitive User Testing:</strong> Run A/B tests against NerdWallet's calculator to validate that "dollar loss" framing actually drives more action than percentage-based comparisons.</li>
-                        <li><strong>Behavioral Tracking Beyond Analytics:</strong> Add heatmaps (Hotjar) to see exactly where users hesitate or get confused—GA4 shows the what, not the why.</li>
-                        <li><strong>30-Day Follow-Up:</strong> Collect emails (with value exchange) and survey users 30 days later: "Did you open a HYSA?" This would close the loop on actual behavior change, not just intent.</li>
-                        <li><strong>Accessibility Testing With Real Users:</strong> I achieved WCAG compliance technically, but I didn't test with actual screen reader users. Compliance ≠ usability.</li>
-                    </ul>
+
+                <article class="journey-step">
+                    <h3>What I got wrong</h3>
+                    <p>No feedback loop inside the tool. GA4 shows session time and bounce rate, but not where people got confused or dropped off. A simple star rating below the results with no signup would have given useful directional data.</p>
+                    <p>40% of users picked "Traditional Bank 0.01%" as their rate, which meant most people do not actually know what their bank pays them. A bank search that surfaces their real rate would have made the tool significantly more useful.</p>
+                </article>
+
+                <article class="journey-step">
+                    <h3>What I would change at scale</h3>
+                    <p>Static rate data was the right call for an MVP. HYSA rates move slowly and a live API adds cost and complexity that was not justified yet. That decision changes once the user volume makes it worth it.</p>
+                    <p>I built first and validated after. With more time I would have spent the first week talking to people about why they had not switched banks yet. That is where the real friction was, and understanding it earlier would have sharpened every other decision.</p>
+                </article>
+
+                <article class="journey-step">
+                    <h3>Why I built this</h3>
+                    <p>My background is B2B SaaS. Funding workflows, automation, systems that operations teams depend on daily. This was a different domain, but the same instinct: find where people are stuck, remove the friction, and make the right action obvious. Good product thinking does not stop at the job description.</p>
                 </article>
             </div>
         </section>
@@ -2102,7 +1752,7 @@
                 <div class="contact-card">
                     <div class="contact-icon" aria-hidden="true">📧</div>
                     <h4>Email Us</h4>
-                    <p style="color: var(--text-secondary);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e99a9c9999869b9da981909a8886999d808480938c9bc78a8684">[email&#160;protected]</a></p>
+                    <p style="color: var(--text-secondary);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e1d1b1e1e011c1a2e06171d0f011e1a070307140b1c400d0103">[email&#160;protected]</a></p>
                 </div>
                 
                 <div class="contact-card">
@@ -2155,7 +1805,6 @@
                 <ul class="footer-links">
                     <li><a href="#" onclick="showPage('home'); scrollToCalculator(); return false;">Calculator</a></li>
                     <li><a href="#" onclick="showPage('journey'); return false;">Product Journey</a></li>
-                    <li><a href="#" onclick="showPage('reflections'); return false;">Reflections</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
@@ -2188,7 +1837,7 @@
         </div>
     </footer>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Carousel State
         let currentTestimonial = 0;
         const totalTestimonials = 3;
@@ -2277,7 +1926,7 @@
         const traditionalBar = document.getElementById('traditionalBar');
         const hysaBar = document.getElementById('hysaBar');
         
-        let currentRate = 4.35;
+        let currentRate = 4.25;
         const inflationRate = 2.7;
         
         // Bank selector functionality
@@ -2286,7 +1935,7 @@
             
             if (selectedValue === 'custom') {
                 customRateInput.classList.add('active');
-                currentRate = parseFloat(customRate.value) || 4.35;
+                currentRate = parseFloat(customRate.value) || 4.25;
                 updateRateDisplay(currentRate);
             } else {
                 customRateInput.classList.remove('active');
@@ -2410,6 +2059,9 @@
         document.querySelectorAll('.carousel-button, .carousel-dot').forEach(el => {
             el.addEventListener('click', () => {
                 clearInterval(carouselInterval);
+                carouselInterval = setInterval(() => {
+                    changeTestimonial(1);
+                }, 8000);
             });
         });
     </script>
